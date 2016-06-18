@@ -3,7 +3,20 @@
 {% block title %} Show User{% endblock %}
 
 {% block body %}
-    <p><a href="{{ path('mailbox_user_edit', {'id': user.id}) }}">{{ user.name }}</a></p>
+    <p><a href="{{ path('mailbox_user_editaddress', {'id': user.id}) }}">Add Address</a></p>
+    <p><a href="{{ path('mailbox_user_editphone', {'id': user.id}) }}">Add Phone</a></p>
+    <p><a href="{{ path('mailbox_user_editemail', {'id': user.id}) }}">Add Email</a></p>
+    <p>{{ user.name }}</p>
     <p>{{ user.surname }}</p>
     <p>{{ user.description }}</p>
+    {% for value in user.addresses %}
+        {{ value.city }}, {{ value.street }} {{ value.houseNumber }} {{ value.apartamentNumber }}
+    {% endfor %}
+    <p>{% for value in user.telephones %}</p>
+    {{ value.type }}, {{ value.telNumber }}
+{% endfor %}
+    <p>{% for value in user.emails %}</p>
+    {{ value.emailtype }}, {{ value.emailAddress }}
+{% endfor %}
+
 {% endblock %}

@@ -1,0 +1,6 @@
+mail_box:
+    resource: "@MailBoxBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+

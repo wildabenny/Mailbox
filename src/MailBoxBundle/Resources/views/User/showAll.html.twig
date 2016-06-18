@@ -4,11 +4,16 @@
 
 {% block body %}
     {% for user in users %}
-        {{ user.name }}
+        <a href="{{ path('mailbox_user_show', {'id': user.id}) }}">{{ user.name }}</a> <a class="btn"
+                                                                                          href="{{ path('mailbox_user_edit', {'id' : user.id}) }}">Edit</a>
+        <a class="btn" href="{{ path('mailbox_user_edit', {'id' : user.id}) }}">Delete</a>
         <br>
         {{ user.surname }}
         <br>
         {{ user.description }}
         <br>
     {% endfor %}
+    <div>
+        <a href="{{ path('mailbox_user_new') }}">Add new contact</a>
+    </div>
 {% endblock %}
