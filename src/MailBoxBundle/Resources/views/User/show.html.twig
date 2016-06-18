@@ -1,0 +1,9 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Show User{% endblock %}
+
+{% block body %}
+    <p><a href="{{ path('mailbox_user_edit', {'id': user.id}) }}">{{ user.name }}</a></p>
+    <p>{{ user.surname }}</p>
+    <p>{{ user.description }}</p>
+{% endblock %}
