@@ -58,11 +58,18 @@ class User
      */
     private $telephones;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Groups", inversedBy="users")
+     * @ORM\JoinTable(name="users_groups")
+     */
+    private $groups;
+
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
         $this->emails = new ArrayCollection();
         $this->telephones = new ArrayCollection();
+        $this->groups = new ArrayCollection();
     }
 
 
@@ -242,5 +249,38 @@ class User
     public function getTelephones()
     {
         return $this->telephones;
+    }
+
+    /**
+     * Add groups
+     *
+     * @param \MailBoxBundle\Entity\Groups $groups
+     * @return User
+     */
+    public function addGroup(\MailBoxBundle\Entity\Groups $groups)
+    {
+        $this->groups[] = $groups;
+
+        return $this;
+    }
+
+    /**
+     * Remove groups
+     *
+     * @param \MailBoxBundle\Entity\Groups $groups
+     */
+    public function removeGroup(\MailBoxBundle\Entity\Groups $groups)
+    {
+        $this->groups->removeElement($groups);
+    }
+
+    /**
+     * Get groups
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getGroups()
+    {
+        return $this->groups;
     }
 }

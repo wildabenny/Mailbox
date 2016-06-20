@@ -21,7 +21,11 @@ class UserController extends Controller
     {
         $user = new User();
 
-        $form = $this->createFormBuilder($user)->add('name')->add('surname')->add('description')
+        $form = $this->createFormBuilder($user)->add('name')->add('surname')->add('description')->add('groups', 'entity', array(
+            'class' => 'MailBoxBundle:Groups',
+            'property' => 'name',
+            'multiple' => true,
+        ))
             ->add('submit', 'submit')->getForm();
 
         $form->handleRequest($request);
@@ -58,7 +62,11 @@ class UserController extends Controller
             return $this->createNotFoundException("No user found");
         }
 
-        $form = $this->createFormBuilder($user)->add('name')->add('surname')->add('description')
+        $form = $this->createFormBuilder($user)->add('name')->add('surname')->add('description')->add('groups', 'entity', array(
+            'class' => 'MailBoxBundle:Groups',
+            'property' => 'name',
+            'multiple' => true,
+        ))
             ->add('submit', 'submit')->getForm();
 
         $form->handleRequest($request);
@@ -156,4 +164,5 @@ class UserController extends Controller
         }
         return ['form' => $form->createView()];
     }
+
 }
