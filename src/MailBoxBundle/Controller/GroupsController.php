@@ -37,5 +37,31 @@ class GroupsController extends \Symfony\Bundle\FrameworkBundle\Controller\Contro
         return ['form' => $form->createView()];
     }
 
+    /**
+     * @Route("/all")
+     * @Template()
+     */
+    public function allGroupsAction()
+    {
+        $groups = $this->getDoctrine()->getRepository('MailBoxBundle:Groups')->findAll();
+        if (!$groups) {
+            return $this->createNotFoundException("Not found any group");
+        }
+        return ['groups' => $groups];
+    }
+
+    /**
+     * @Route("/groupMembers/{id}")
+     * @Template()
+     */
+    public function groupMembersAction($id)
+    {
+        $group = $this->getDoctrine()->getRepository('MailBoxBundle:Groups')->find($id);
+        if (!$group) {
+            return $this->createNotFoundException("Group not found");
+        }
+        return ['group' => $group];
+    }
+
 
 }

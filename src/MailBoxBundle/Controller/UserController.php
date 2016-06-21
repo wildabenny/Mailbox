@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends Controller
 {
+    
     /**
      * @Route("/new")
      * @Template()

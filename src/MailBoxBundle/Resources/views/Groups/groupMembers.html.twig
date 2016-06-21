@@ -1,0 +1,7 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% for members in group.users %}
+        <p>{{ members.name }}</p>
+    {% endfor %}
+{% endblock %}

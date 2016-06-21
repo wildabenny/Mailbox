@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class UserRepository extends EntityRepository
 {
+    public function findUserByName($name)
+    {
+        $dql = "SELECT b FROM MailBoxBundle:User b WHERE b.name LIKE :nameToFind";
+
+        $query = $this->getEntityManager()->createQuery($dql)->setParameter('nameToFind', $name);
+
+        return $query->getResult();
+    }
+
+    public function findUserBySurname($name)
+    {
+        $dql = "SELECT b FROM MailBoxBundle:User b WHERE b.surname LIKE :nameToFind";
+
+        $query = $this->getEntityManager()->createQuery($dql)->setParameter('nameToFind', $name);
+
+        return $query->getResult();
+    }
 }
