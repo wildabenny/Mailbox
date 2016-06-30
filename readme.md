@@ -2,14 +2,15 @@ MailBox
 
 funkcjonalności:
 
--tworzenie użytkowników <br>
--tworzenie książkii adresowej <br>
--dodawanie/edytowanie grup użytkowników
+- tworzenie użytkowników
+- logowanie
+- tworzenie książkii adresowej
+- dodawanie/edytowanie grup użytkowników
 
 Użyte technologie:
-Symfony 2
-Doctrine
-PHP OOP
+ - Symfony 2
+ - Doctrine
+ - PHP OOP
 
 
 
