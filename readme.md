@@ -10,6 +10,7 @@ funkcjonalności:
 Użyte technologie:
  - Symfony 2
  - Doctrine
+ - MySQL
  - PHP OOP
 
 
