@@ -1,4 +1,15 @@
-Warsztaty 5
+MailBox
 
-Zaimplementowane wzystkie funkcjonalności podstawowe, oraz dodatkowe
+funkcjonalności:
+
+-tworzenie użytkowników <br>
+-tworzenie książkii adresowej <br>
+-dodawanie/edytowanie grup użytkowników
+
+Użyte technologie:
+Symfony 2
+Doctrine
+PHP OOP
+
+
 
